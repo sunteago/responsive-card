@@ -18,14 +18,15 @@ body {
 .blog-slider {
   width: 95%;
   position: relative;
-  max-width: 600px;
   margin: auto;
   background: var(--dark);
   padding: 0 25px;
   border-radius: var(--radius);
   transition: all 0.3s;
+  max-width: 680px;
+
   &::after {
-    content: '';
+    content: "";
     position: absolute;
     top: -5px;
     left: 6px;
@@ -35,20 +36,14 @@ body {
     border: 3px solid var(--dark);
     z-index: -1;
   }
-  @media screen and (max-width: 992px) {
-    max-width: 680px;
-  }
-
-  @media screen and (max-width: 768px) {
-    height: auto;
-  }
 
   &__item {
     display: flex;
     align-items: center;
+    flex-direction: column;
 
-    @media screen and (max-width: 768px) {
-      flex-direction: column;
+    @media screen and (min-width: 768px) {
+      flex-direction: row;
     }
 
     &.swiper-slide-active {
@@ -74,11 +69,11 @@ body {
   }
 
   &__img {
-    width: 300px;
+    width: 95%;
+    transform: translateY(-20%);
     flex-shrink: 0;
     height: 300px;
     border-radius: var(--radius);
-    transform: translate(-70px, 40px);
     overflow: hidden;
 
     &:after {
@@ -101,29 +96,29 @@ body {
       border-radius: var(--radius);
       transition: all 0.3s;
     }
-    @media screen and (max-width: 768px) {
-      transform: translateY(-50%);
+    @media screen and (min-width: 576px) {
       width: 90%;
     }
-    @media screen and (max-width: 576px) {
-      width: 95%;
+    @media screen and(min-width: 768px) {
+      transform: translate(-70px, 40px);
+      width: 300px;
     }
   }
 
   &__content {
-    margin-left: -30px;
-    padding-right: 25px;
-    @media screen and (max-width: 992px) {
-    }
-    @media screen and (max-width: 768px) {
-      margin-top: -80px;
-      text-align: center;
-      padding: 0 30px;
-      margin-left: 0;
-    }
+    margin-top: -12px;
+    text-align: center;
+    margin-left: 0;
+    padding: 0;
 
-    @media screen and (max-width: 576px) {
-      padding: 0;
+    @media screen and (min-width: 576px) {
+      padding: 0 30px;
+    }
+    @media screen and (min-width: 768px) {
+      margin-left: -30px;
+      padding-right: 25px;
+      padding: 0 30px;
+      text-align: left;
     }
     > * {
       opacity: 0;
@@ -146,7 +141,7 @@ body {
   }
 
   &__button {
-    display: inline-flex;
+    display: flex;
     background: var(--accent);
     padding: 15px 35px;
     border-radius: var(--radius);
@@ -156,9 +151,10 @@ body {
     justify-content: center;
     text-align: center;
     letter-spacing: 1px;
+    width: 100%;
 
-    @media screen and (max-width: 576px) {
-      width: 100%;
+    @media screen and (min-width: 576px) {
+      width: unset;
     }
   }
   .swiper-container-horizontal > .swiper-pagination-bullets,
@@ -170,28 +166,28 @@ body {
   }
   &__pagination {
     position: absolute;
+    transform: translateX(-50%);
     z-index: 21;
-    right: 20px;
-    width: 11px !important;
-    text-align: center;
-    left: auto !important;
-    top: 50%;
-    bottom: auto !important;
-    transform: translateY(-50%);
+    left: 50% !important;
+    top: 260px;
+    width: 100% !important;
+    display: inline-flex;
+    justify-content: center;
 
-    @media screen and (max-width: 768px) {
-      transform: translateX(-50%);
-      left: 50% !important;
-      top: 205px;
-      width: 100% !important;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+    @media screen and (min-width: 768px) {
+      display: block;
+      transform: translateY(-50%);
+      right: 20px;
+      width: 11px !important;
+      left: auto !important;
+      top: 50%;
+      bottom: auto !important;
     }
+
     &.swiper-pagination-bullets .swiper-pagination-bullet {
-      margin: 8px 0;
-      @media screen and (max-width: 768px) {
-        margin: 0 5px;
+      margin: 0 5px;
+      @media screen and (min-width: 768px) {
+        margin: 8px 0;
       }
     }
 
@@ -205,11 +201,12 @@ body {
       opacity: 0.7;
       &-active {
         background: var(--accent);
-        height: 30px;
-
-        @media screen and (max-width: 768px) {
-          height: 11px;
-          width: 30px;
+        height: 11px;
+        width: 30px;
+        
+        @media screen and (min-width: 768px) {
+          width: 11px;
+          height: 30px;
         }
       }
     }

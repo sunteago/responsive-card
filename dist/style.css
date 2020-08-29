@@ -20,12 +20,12 @@ body {
 .blog-slider {
   width: 95%;
   position: relative;
-  max-width: 600px;
   margin: auto;
   background: var(--dark);
   padding: 0 25px;
   border-radius: var(--radius);
   transition: all 0.3s;
+  max-width: 680px;
 }
 .blog-slider::after {
   content: "";
@@ -38,23 +38,14 @@ body {
   border: 3px solid var(--dark);
   z-index: -1;
 }
-@media screen and (max-width: 992px) {
-  .blog-slider {
-    max-width: 680px;
-  }
-}
-@media screen and (max-width: 768px) {
-  .blog-slider {
-    height: auto;
-  }
-}
 .blog-slider__item {
   display: flex;
   align-items: center;
+  flex-direction: column;
 }
-@media screen and (max-width: 768px) {
+@media screen and (min-width: 768px) {
   .blog-slider__item {
-    flex-direction: column;
+    flex-direction: row;
   }
 }
 .blog-slider__item.swiper-slide-active .blog-slider__img img {
@@ -111,11 +102,11 @@ body {
   transition-delay: 1.7s;
 }
 .blog-slider__img {
-  width: 300px;
+  width: 95%;
+  transform: translateY(-20%);
   flex-shrink: 0;
   height: 300px;
   border-radius: var(--radius);
-  transform: translate(-70px, 40px);
   overflow: hidden;
 }
 .blog-slider__img:after {
@@ -137,32 +128,34 @@ body {
   border-radius: var(--radius);
   transition: all 0.3s;
 }
-@media screen and (max-width: 768px) {
+@media screen and (min-width: 576px) {
   .blog-slider__img {
-    transform: translateY(-50%);
     width: 90%;
   }
 }
-@media screen and (max-width: 576px) {
+@media screen and (min-width: 768px) {
   .blog-slider__img {
-    width: 95%;
+    transform: translate(-70px, 40px);
+    width: 300px;
   }
 }
 .blog-slider__content {
-  margin-left: -30px;
-  padding-right: 25px;
+  margin-top: -12px;
+  text-align: center;
+  margin-left: 0;
+  padding: 0;
 }
-@media screen and (max-width: 768px) {
+@media screen and (min-width: 576px) {
   .blog-slider__content {
-    margin-top: -80px;
-    text-align: center;
     padding: 0 30px;
-    margin-left: 0;
   }
 }
-@media screen and (max-width: 576px) {
+@media screen and (min-width: 768px) {
   .blog-slider__content {
-    padding: 0;
+    margin-left: -30px;
+    padding-right: 25px;
+    padding: 0 30px;
+    text-align: left;
   }
 }
 .blog-slider__content > * {
@@ -182,7 +175,7 @@ body {
   line-height: 1.5em;
 }
 .blog-slider__button {
-  display: inline-flex;
+  display: flex;
   background: var(--accent);
   padding: 15px 35px;
   border-radius: var(--radius);
@@ -192,10 +185,11 @@ body {
   justify-content: center;
   text-align: center;
   letter-spacing: 1px;
+  width: 100%;
 }
-@media screen and (max-width: 576px) {
+@media screen and (min-width: 576px) {
   .blog-slider__button {
-    width: 100%;
+    width: unset;
   }
 }
 .blog-slider .swiper-container-horizontal > .swiper-pagination-bullets,
@@ -207,32 +201,31 @@ body {
 }
 .blog-slider__pagination {
   position: absolute;
+  transform: translateX(-50%);
   z-index: 21;
-  right: 20px;
-  width: 11px !important;
-  text-align: center;
-  left: auto !important;
-  top: 50%;
-  bottom: auto !important;
-  transform: translateY(-50%);
+  left: 50% !important;
+  top: 260px;
+  width: 100% !important;
+  display: inline-flex;
+  justify-content: center;
 }
-@media screen and (max-width: 768px) {
+@media screen and (min-width: 768px) {
   .blog-slider__pagination {
-    transform: translateX(-50%);
-    left: 50% !important;
-    top: 205px;
-    width: 100% !important;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: block;
+    transform: translateY(-50%);
+    right: 20px;
+    width: 11px !important;
+    left: auto !important;
+    top: 50%;
+    bottom: auto !important;
   }
 }
 .blog-slider__pagination.swiper-pagination-bullets .swiper-pagination-bullet {
-  margin: 8px 0;
+  margin: 0 5px;
 }
-@media screen and (max-width: 768px) {
+@media screen and (min-width: 768px) {
   .blog-slider__pagination.swiper-pagination-bullets .swiper-pagination-bullet {
-    margin: 0 5px;
+    margin: 8px 0;
   }
 }
 .blog-slider__pagination .swiper-pagination-bullet {
@@ -246,12 +239,13 @@ body {
 }
 .blog-slider__pagination .swiper-pagination-bullet-active {
   background: var(--accent);
-  height: 30px;
+  height: 11px;
+  width: 30px;
 }
-@media screen and (max-width: 768px) {
+@media screen and (min-width: 768px) {
   .blog-slider__pagination .swiper-pagination-bullet-active {
-    height: 11px;
-    width: 30px;
+    width: 11px;
+    height: 30px;
   }
 }
 
